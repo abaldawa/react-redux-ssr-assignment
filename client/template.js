@@ -14,7 +14,7 @@
  * @param {String} :OPTIONAL: content When present returns HTML with the contents included
  * @returns {string}
  */
-function template(title, state = {}, content = ""){
+function template(title, state = {}, content = "", css){
   let
       scripts = '';
 
@@ -23,6 +23,7 @@ function template(title, state = {}, content = ""){
                    window.__STATE__ = ${JSON.stringify(state)}
                 </script>
                 <script src="assets/ssrClient.js"></script>
+                <style id="jss-server-side">${css}</style>
                 `;
   } else {
     scripts = ` <script src="assets/client.js"> </script> `;

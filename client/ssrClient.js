@@ -6,6 +6,9 @@
  */
 
 import React from 'react';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import green from '@material-ui/core/colors/green';
+import red from '@material-ui/core/colors/red';
 import {Provider} from 'react-redux';
 import {hydrate} from 'react-dom';
 import configureStore from './store/store';
@@ -17,10 +20,34 @@ delete window.__STATE__;
 
 const store = configureStore(state);
 
+class Main extends React.Component {
+    // Remove the server-side injected CSS.
+    componentDidMount() {
+        const jssStyles = document.getElementById('jss-server-side');
+        if (jssStyles && jssStyles.parentNode) {
+            jssStyles.parentNode.removeChild(jssStyles);
+        }
+    }
+
+    render() {
+        return <App />
+    }
+}
+
+// Create a theme instance.
+const theme = createMuiTheme({
+    palette: {
+        primary: green,
+        accent: red,
+        type: 'light'
+    },
+});
 
 hydrate(
     <Provider store={store} >
-        <App />
+        <MuiThemeProvider theme={theme}>
+            <Main />
+        </MuiThemeProvider>
     </Provider>,
     document.getElementById("app")
 );

@@ -57,12 +57,12 @@ router.get('/', async (req, res) => {
 
     // ------ 3. Get the server side rendered string representation of react/redux app and pre-initialized redux store object ------
     const
-        { initialState, template: templateString}  = renderAndGetState(initialStateObj);
+        { initialState, template: templateString, css}  = renderAndGetState(initialStateObj);
     // --------------------------------- 3. END ---------------------------------------------------------------------------
 
 
     // -- 4. Generate the HTML string representation for the UI based on templateString and initialState and send response ----
-    res.send(template("Server Rendered Page", initialState, templateString));
+    res.send(template("Server Rendered Page", initialState, templateString, css));
     // ---------------------------------- 4. END ---------------------------------------------------------------------------
 });
 
