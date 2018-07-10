@@ -40,7 +40,7 @@ function CSSGrid(props) {
         <div>
             <Grid container spacing={16}>
                 {seriesArr.map((seriesObj) =>
-                    <Grid item xs={false} key={ObjParse(seriesObj).getKey('guid').getVal()}>
+                    <Grid item xs={false} key={ObjParse(seriesObj).getKey('guid').getVal()} className="MuiGrid-item-67">
                         <Series
                             thumbnailUrl={ ObjParse(seriesObj).getKey('thumbnailUrl').getVal()}
                             title={ObjParse(seriesObj).getKey('title').getVal()|| ''}
