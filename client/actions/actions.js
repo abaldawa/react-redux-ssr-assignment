@@ -12,9 +12,7 @@ import {
     IS_QUERIED,
     FETCH_PAGE_URL
 } from '../constants/action-types';
-import {VIAPLAY_SERIES_URL} from '../../common/endPoints';
-import {getSeriesObj} from '../../common/initialState';
-import {formatPromiseResult, ObjParse} from '../../common/utils';
+import { ObjParse} from '../../common/utils';
 
 /**
  * @methods PRIVATE
@@ -39,12 +37,12 @@ const clearError = () => ({type: CLEAR_ERROR});
 /**
  * @method PUBLIC
  *
- * This thunk action creator is used to fetch the series of first page.
+ * This thunk action creator is used to fetch the series of first page. This will be called in client side rendering once.
  *
  * This action does below by dispatching below actions:
  * 1] Marks the 'initialStateQueried' status to true in the store
  * 2] Sets isloading to true
- * 3] Fetches the series data
+ * 3] Fetches the series first page data
  * 4] If successful updates the state to 'isLoading' false and add series to state, else, isLoading to false and add errorMessage
  *    to state
  *
@@ -56,28 +54,15 @@ const fetchFirstPageSeries = () => {
             dispatch(isInitialStateQueried());
             dispatch(loadingData(true));
 
-            let response = await fetch(`${VIAPLAY_SERIES_URL}`);
-            let json = await response.json();
 
-            let firstPageUrl = ObjParse(json)
-                                    .getKey("_embedded")
-                                    .getKey('viaplay:blocks')
-                                    .getKey(0)
-                                    .getKey('_links')
-                                    .getKey('self')
-                                    .getKey('href')
-                                    .getVal();
+            const response = await fetch(`${FETCH_PAGE_URL}`);
+            const json = await response.json();
 
-            if( !firstPageUrl ) {
-                throw "NO_FIRST_PAGE_URL_FOUND";
-            }
-
-            firstPageUrl = firstPageUrl.replace("https://", "http://");
-
-            response = await fetch(`${firstPageUrl}`);
-            json = await response.json();
-
-            dispatch(addSeries(getSeriesObj(json)));
+            dispatch(addSeries({
+                seriesArr: ObjParse(json).getKey('seriesArr').getVal(),
+                links: ObjParse(json).getKey('links').getVal(),
+                navigation: ObjParse(json).getKey('navigation').getVal()
+            }));
             dispatch(loadingData(false));
         } catch(err) {
             dispatch(loadingData(false));
@@ -108,8 +93,8 @@ const fetchPage = ( URL ) => {
         try{
             dispatch(loadingData(true));
 
-            let response = await fetch(`${FETCH_PAGE_URL}?pageUrl=${URL}`);
-            let json = await response.json();
+            const response = await fetch(`${FETCH_PAGE_URL}?pageUrl=${URL}`);
+            const json = await response.json();
 
             dispatch(addSeries({
                 seriesArr: ObjParse(json).getKey('seriesArr').getVal(),

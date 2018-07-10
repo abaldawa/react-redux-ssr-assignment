@@ -13,10 +13,10 @@ const
 /**
  * REST endpoint for GET /navigation?pageUrl=<URL> URL.
  * This endpoint is used to fetch the "series" information along with "links" and "navigation" metadata from the viaPlay server.
- * This endpoint is useful for navigating to "prev", "next", "first", "last" pages.
+ * This endpoint is useful for navigating to "prev", "next", "first", "last" and home pages.
  *
- * Also, request MUST have "pageUrl" query param which does point to viaplay "URL" whose metadata is to be fetched. If "pageUrl"
- * query param is not passed then the endpoint responds with 400 status.
+ * Also, request query param  "pageUrl" is optional and if present it does point to viaplay "URL" whose metadata is to be fetched. If "pageUrl"
+ * query param is not passed then the endpoint responds with first page series metadata from viaplayServer
  *
  * An example response sent by this endpoint is as below:
  *
@@ -49,20 +49,18 @@ const
  * }
  *
  * Error response which could be sent by this endpoint is as below:
- * HTTP Status code: 400, message "URL query param 'URL'"
  * HTTP Status code: 500, Unexpected errors
  */
 router.get('/', async (req, res) => {
-    const
-         pageUrl = req.originalUrl.split("pageUrl=").pop();
-
     let
+        pageUrl = req.originalUrl.split("pageUrl="),
         err,
         result;
-
     // ---------------------------- 1. Validation ----------------------------
-    if( !pageUrl ) {
-        return res.status(400).send(`URL query param 'URL'`);
+    if( pageUrl.length === 1 ) {
+        pageUrl = null;
+    } else {
+        pageUrl = pageUrl.pop();
     }
     // ---------------------------- 1. END ----------------------------
 
