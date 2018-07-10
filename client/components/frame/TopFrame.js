@@ -13,18 +13,21 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
     root: {
-        flexGrow: 1,
+        flexGrow: 1
     },
+    bgColor: {
+        backgroundColor: "black"
+    }
 };
 
 function TopFrame(props) {
     const { classes, title } = props;
     return (
         <div className={classes.root} style={{"marginBottom":"10px"}}>
-            <AppBar position="static">
+            <AppBar position="static" classes={{colorPrimary: classes.bgColor}}>
                 <Toolbar>
                     <Typography variant="title" color="inherit">
-                       {title}
+                       <img src="/images/viaplayLogo.png" style={{width: "144px", height:"35px"}}/>
                     </Typography>
                 </Toolbar>
             </AppBar>

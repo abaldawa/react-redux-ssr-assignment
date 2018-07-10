@@ -21,6 +21,7 @@ const
 
     // --------------------- 1. Add all the required express middleware ---------------------
     app.use('/assets', express.static(path.resolve(__dirname, '..','assets')));
+    app.use('/images', express.static(path.resolve(__dirname, '..','images')));
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
 

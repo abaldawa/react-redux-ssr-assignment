@@ -29,9 +29,9 @@ router.get('/', async (req, res) => {
                 last: null
             },
             navigation: {
-                start: null,
-                end: null,
-                total: null
+                start: 0,
+                end: 0,
+                total: 0
             }
         },
         err,
