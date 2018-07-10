@@ -37,5 +37,10 @@ Once the server is started this URL will display UI rendered on the client
 4. npm start
 5. Go to http://localhost:3000/ssr to see SSR rendered UI or http://localhost:3000/client to see UI rendered on client side
 
+## The output:
+1. SSR output (and client as well) looks as below (Screen shot taken at 60 percent of zoom to fit everything on screen)
+<img width="1280" alt="ssr" src="https://user-images.githubusercontent.com/5449692/42530773-538aea28-8482-11e8-8adc-38d27655952f.png">
+
+
 ## Known issue
 On server side rendered page ("http://localhost:3000/ssr") everything is fine on the landing page but when user clicks on navigation links ("first", "prev" etc.) the grid gap between individual series components reduces. This is happening due to styles not being correctly applied just for the grid element from "material-ui" so seems like some issue with "material-ui" when rendered on server side. Due to lack of time I did not spend much time on this as it does not impact a lot on alignment and visibility. On client side URL ("http://localhost:3000/ssr") there is no such issue on navigation.
