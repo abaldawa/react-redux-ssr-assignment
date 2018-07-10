@@ -12,6 +12,7 @@
  * @param {String} title This is the title for the HTML page
  * @param {Object} state :OPTIONAL: state When present adds state of the store to window.__STATE__ so that it can used late for ssr
  * @param {String} :OPTIONAL: content When present returns HTML with the contents included
+ * @param {String} :OPTIONAL: css css to be injected in the script
  * @returns {string}
  */
 function template(title, state = {}, content = "", css){

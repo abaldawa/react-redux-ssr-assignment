@@ -1,7 +1,7 @@
 /**
  * User: abhijit.baldawa
  *
- * This module creates react store with either passed in initialState or from scratch. It uses thunk middleware for to
+ * This module creates react store with either passed in initialState or from scratch. It uses thunk middleware to
  * handle async actions
  */
 

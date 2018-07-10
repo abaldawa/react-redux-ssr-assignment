@@ -1,5 +1,7 @@
 /**
  * User: abhijit.baldawa
+ *
+ * This component is used to create popup on the UI with passed in message
  */
 
 import React from 'react';

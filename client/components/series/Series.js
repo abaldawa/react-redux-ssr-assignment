@@ -1,5 +1,7 @@
 /**
  * User: abhijit.baldawa
+ *
+ * This Component is used to create one series item on the UI
  */
 
 import React from 'react';

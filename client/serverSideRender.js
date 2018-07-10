@@ -1,7 +1,7 @@
 /**
  * User: abhijit.baldawa
  *
- * This module is used to render react application on the server
+ * This module is used to render string representation of react and css components on the server
  */
 
 import React from 'react';

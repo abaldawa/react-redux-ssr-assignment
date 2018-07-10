@@ -1,5 +1,7 @@
 /**
  * User: abhijit.baldawa
+ *
+ * This Component creates a app bar
  */
 
 import React from 'react';

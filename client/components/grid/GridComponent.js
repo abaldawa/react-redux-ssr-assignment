@@ -1,5 +1,7 @@
 /**
  * User: abhijit.baldawa
+ *
+ * This Component creates a grid of series from passed in series array metadata
  */
 
 import React from 'react';

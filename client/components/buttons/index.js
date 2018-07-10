@@ -1,5 +1,7 @@
 /**
  * User: abhijit.baldawa
+ *
+ * This component create button with click handling functionality
  */
 
 import React from 'react';

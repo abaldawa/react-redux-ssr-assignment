@@ -1,5 +1,7 @@
 /**
  * User: abhijit.baldawa
+ *
+ * This component is used to create pagination item on the UI
  */
 
 import React from 'react';
