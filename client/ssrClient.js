@@ -36,11 +36,7 @@ class Main extends React.Component {
 
 // Create a theme instance.
 const theme = createMuiTheme({
-    palette: {
-        primary: green,
-        accent: red,
-        type: 'light'
-    },
+    palette: {}
 });
 
 hydrate(
