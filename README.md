@@ -6,7 +6,7 @@ A full stack node.js/react/redux SSR application which shows paginated list of v
 I have also implemented navigation capabilities to the UI even though it was not mentioned in the assignment. So user can  navigate "first", "prev", "next", "last" and browse viaplay series using REST endpoint (/navigation) exposed by local node.js server.
 
 
-#### The front end (React/redux) and backend node.js is written in latest ES 2017 syntax completely with async/await and latest node.js version (10.5) and latest react/redux version is used. Also, code is completely documented along with design/pattern decision description and method usage documentation.
+#### The front end (React/redux) and backend node.js is written in latest ES 2017 syntax completely with async/await and latest node.js version (10.5) and latest react/redux version is used. Also, all components in react are STATELESS as it was mentioned in the assignment and code is completely documented along with design/pattern decision description and method usage documentation.
 
 ## File Structure
 1] ./server/ (DIRECTORY) -> Contains all the server code <br/>
