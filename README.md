@@ -39,7 +39,7 @@ Once the server is started this URL will display UI rendered on the client
 
 ## The output:
 1. SSR output (and client as well) looks as below (Screen shot taken at 60 percent of zoom to fit everything on screen)
-<img width="1280" alt="ssr" src="https://user-images.githubusercontent.com/5449692/42530773-538aea28-8482-11e8-8adc-38d27655952f.png">
+<img width="1280" alt="ssr" src="https://user-images.githubusercontent.com/5449692/42531235-bb129f6e-8483-11e8-8453-03049b380acd.png">
 
 
 ## Known issue
